@@ -1,692 +1,695 @@
-# Youth Climate Hub
+# Green Cardinal KE Website
 
-Build a modern, professional, youth-centered website for a Kenyan youth-led initiative focused on climate action, environmental conservation, water security, education, leadership, and meaningful youth participation in sustainable development.
+Official website for **Green Cardinal KE**, the Kenyan chapter of Climate Cardinals. The website provides information about the organization, programs, projects, campaigns, events, resources, and opportunities, and serves as a platform for public engagement and communication.
 
-Website Purpose
+---
 
-The website should present the initiative as a credible, youth-led organization that connects young people to opportunities, projects, campaigns, education, partnerships, and community action.
+## 1. Requirements
 
-The website should communicate three key ideas:
+Before running the project, install:
 
-Youth are not only beneficiaries but active leaders and problem-solvers.
+* **Node.js LTS** — includes npm
+* **Git**
+* **Visual Studio Code** or another code editor
+* A modern web browser such as Chrome, Edge, Firefox, or Safari
 
-Climate, water, and environmental challenges require practical community-based solutions.
+Verify the installations:
 
-Young people should have access to knowledge, networks, opportunities, and platforms to influence sustainable development.
+```bash
+node -v
+npm -v
+git --version
+```
 
-Target Audience
+If all three commands return version numbers, the environment is ready.
 
-Young people aged 15–35
+---
 
-Students and youth-led organizations
+## 2. Clone the Repository
 
-Climate and environmental activists
+Clone the repository from GitHub:
 
-Young innovators and entrepreneurs
+```bash
+git clone <REPOSITORY-URL>
+```
 
-Schools and universities
+Enter the project directory:
 
-NGOs and development organizations
+```bash
+cd <PROJECT-FOLDER>
+```
 
-Government and policy stakeholders
+Example:
 
-International organizations
+```bash
+cd "G.Cardinal Website"
+```
 
-Potential donors, sponsors, and partners
+Then open the project in VS Code:
 
-Brand & Visual Identity
+```bash
+code .
+```
 
-Create a clean, energetic and credible visual identity.
+If the `code` command is unavailable, open VS Code manually and select:
 
-Design direction:
+**File → Open Folder → Project Folder**
 
-Modern African youth movement
+---
 
-Professional but youthful
+## 3. Install Dependencies
 
-Environmental and technology-inspired
+From the project root directory, run:
 
-Strong use of photography showing African youth taking action
+```bash
+npm install
+```
 
-Nature-inspired visual elements
+This installs all dependencies listed in `package.json`.
 
-Subtle technology/innovation elements
+You normally only need to run `npm install`:
 
-Mobile-first and highly responsive
+* After cloning the repository for the first time
+* After `package.json` or `package-lock.json` changes
+* When dependencies have been added or removed
+* When setting up the project on another computer
 
-Suggested colors:
+---
 
-Deep green
+## 4. Run the Website Locally
 
-Forest green
+Start the development server:
 
-Water blue
-
-White
-
-Small accents of warm yellow/orange
-
-Use rounded cards, clean typography, subtle animations, modern icons and generous spacing.
-
-Avoid making the website look like a traditional NGO website. It should feel like a dynamic youth movement and innovation platform.
-
-Navigation
-
-Create the following main navigation:
-
-Home
-About Us
-Our Work
-Programs
-Opportunities
-Impact
-Resources
-Get Involved
-Partners
-Contact
-
-Include a prominent "Join the Movement" button in the navigation.
-
-HOME PAGE
-
-Hero Section
-
-Large, visually engaging hero section featuring African youth working on environmental, climate, water or technology projects.
-
-Headline:
-
-"Young People. Bold Ideas. Sustainable Action."
-
-Subheadline:
-
-"Empowering young people to turn knowledge, innovation and collective action into solutions for climate, water and environmental challenges."
-
-Primary CTA:
-"Join the Movement"
-
-Secondary CTA:
-"Explore Our Work"
-
-Add subtle animated elements such as floating environmental/technology icons or moving background shapes.
-
-Impact Statistics
-
-Create an animated statistics section with editable figures:
-
-Young People Engaged
-
-Communities Reached
-
-Projects Implemented
-
-Partnerships Built
-
-Trees Planted
-
-Litres of Water Saved
-
-Make the statistics easy to update from an admin/content management area.
-
-About Section
-
-Short introduction explaining who the initiative is, why it exists, and the problem it seeks to address.
-
-Include a "Learn More" button.
-
-Our Focus Areas
-
-Create six visually attractive cards:
-
-Climate Action
-
-Water Security & Conservation
-
-Environmental Conservation
-
-Youth Leadership
-
-Innovation & Technology
-
-Climate & Environmental Education
-
-Each card should have an icon, short description and "Explore" link.
-
-Featured Projects
-
-Display 3–6 project cards with:
-
-Project image
-
-Project name
-
-Location
-
-Short description
-
-Impact
-
-"View Project" button
-
-Examples of project categories:
-
-Community water conservation
-
-School environmental education
-
-Tree planting
-
-Youth climate campaigns
-
-Water innovation
-
-Digital climate education
-
-Opportunities Section
-
-Create a prominent section where young people can discover:
-
-Fellowships
-
-Internships
-
-Scholarships
-
-Conferences
-
-Grants
-
-Volunteer opportunities
-
-Training
-
-Climate and environmental events
-
-Each opportunity should have:
-
-Title
-
-Organization
-
-Deadline
-
-Location/Online
-
-Eligibility
-
-Apply button
-
-Include filters by category and deadline.
-
-Youth Voices
-
-Create a section featuring stories, quotes and profiles from young people involved in the initiative.
-
-Include:
-
-Profile photo
-
-Name
-
-Country/location
-
-Role
-
-Short story
-
-Latest Stories & News
-
-Create a modern blog/news section with cards for:
-
-Youth stories
-
-Project updates
-
-Climate articles
-
-Water stories
-
-Event coverage
-
-Policy discussions
-
-Innovation
-
-Include category filters and search.
-
-Call to Action
-
-Large section:
-
-"Your Voice. Your Ideas. Your Future."
-
-Text:
-"Whether you are a student, innovator, activist, volunteer, organization or potential partner, there is a place for you in this movement."
-
-Buttons:
-"Become a Member"
-"Partner With Us"
-
-ABOUT US
-
-Create an engaging About page containing:
-
-Who We Are
-
-Explain the initiative's origins, purpose and youth-led approach.
-
-Our Vision
-
-"A future where young people are empowered and equipped to lead inclusive, sustainable solutions for people and planet."
-
-Our Mission
-
-"To connect, equip and amplify young people through education, innovation, advocacy and community action for a sustainable future."
-
-Our Values
-
-Youth Leadership
-
-Inclusion
-
-Innovation
-
-Collaboration
-
-Sustainability
-
-Integrity
-
-Community Impact
-
-Our Team
-
-Create professional profile cards for team members with:
-
-Photo
-
-Name
-
-Position
-
-Short biography
-
-LinkedIn/social links
-
-OUR WORK
-
-Create an interactive project portfolio.
-
-Each project page should contain:
-
-Project title
-
-Location
-
-Date
-
-Problem addressed
-
-Solution
-
-Activities
-
-Partners
-
-Beneficiaries
-
-Impact/results
-
-Photos
-
-Videos
-
-SDGs addressed
-
-Related resources
-
-Add filters for:
-
-Water
-
-Climate
-
-Environment
-
-Education
-
-Technology
-
-Youth leadership
-
-PROGRAMS
-
-Create dedicated pages for major programs.
-
-Suggested programs:
-
-Youth Climate Leadership
-
-Training young people in climate leadership, advocacy and policy engagement.
-
-Water & Environmental Action
-
-Supporting young people and communities to implement practical water conservation and environmental projects.
-
-Green Schools
-
-Environmental education, tree planting, waste management and water conservation activities in schools.
-
-Youth Innovation Lab
-
-Supporting young innovators developing technology-based solutions to environmental and water challenges.
-
-Climate Education
-
-Making climate science, policy and opportunities accessible to young people and underserved communities.
-
-OPPORTUNITIES HUB
-
-Build a searchable opportunities platform.
-
-Features:
-
-Search bar
-
-Category filters
-
-Deadline filters
-
-Country filters
-
-Online/in-person filter
-
-Featured opportunities
-
-Bookmark/save functionality
-
-"Submit an Opportunity" button
-
-Opportunity categories:
-Scholarships, Fellowships, Grants, Jobs, Internships, Conferences, Trainings, Volunteering and Competitions.
-
-IMPACT PAGE
-
-Create a visual impact dashboard.
-
-Include:
-
-Number of youth engaged
-
-Number of schools reached
-
-Communities reached
-
-Trees planted
-
-Water saved
-
-Waste collected
-
-Projects implemented
-
-Trainings conducted
-
-Include charts and maps showing geographic reach.
-
-Add an interactive map of Kenya showing project locations.
-
-Include downloadable annual impact reports.
-
-RESOURCES
-
-Create a resource library containing:
-
-Guides
-
-Research
-
-Reports
-
-Toolkits
-
-Policy briefs
-
-Climate education materials
-
-Water conservation resources
-
-Videos
-
-Infographics
-
-Allow users to search and filter resources.
-
-GET INVOLVED
-
-Create several pathways:
-
-Become a Member
-
-Registration form collecting:
-
-Name
-
-Email
-
-Country
-
-County
-
-Age range
-
-Areas of interest
-
-Skills
-
-Organization/school
-
-Why they want to join
-
-Volunteer
-
-Volunteer application form.
-
-Partner With Us
-
-Partnership inquiry form for NGOs, companies, governments, schools and development organizations.
-
-Donate
-
-Create a donation section with secure payment integration placeholders.
-
-Become a Mentor
-
-Mentorship registration form.
-
-PARTNERS
-
-Create a partner showcase with logos and descriptions.
-
-Divide partners into:
-
-Strategic Partners
-
-Community Partners
-
-Government Partners
-
-Youth Networks
-
-Academic Partners
-
-Private Sector
-
-Development Partners
-
-Include a "Become a Partner" CTA.
-
-CONTACT
-
-Create a professional contact page with:
-
-Email
-
-Phone
-
-Social media links
-
-Location
-
-Contact form
-
-Partnership inquiry option
-
-General inquiry option
-
-Include an embedded map where appropriate.
-
-FOOTER
-
-Include:
-
-Logo
-Short mission statement
-Quick links
-Programs
-Opportunities
-Contact
-Social media icons
-Newsletter signup
-Privacy Policy
-Terms of Use
-
-Newsletter CTA:
-
-"Stay Connected"
-
-"Get youth opportunities, climate stories, events and project updates delivered to your inbox."
-
-KEY FUNCTIONALITY
-
-The website should include:
-
-Responsive design for mobile, tablet and desktop.
-
-Fast loading performance.
-
-Accessible design.
-
-SEO optimization.
-
-Social media sharing.
-
-Newsletter subscription.
-
-Search functionality.
-
-Opportunity filtering.
-
-Project filtering.
-
-Contact forms.
-
-Membership registration.
-
-Volunteer registration.
-
-Partner inquiry forms.
-
-Blog/content management.
-
-Image gallery.
-
-Video embeds.
-
-Interactive impact statistics.
-
-Interactive project map.
-
-Downloadable resources.
-
-Admin dashboard/content management system.
-
-ADMIN DASHBOARD
-
-Create a secure admin dashboard where authorized administrators can:
-
-Add/edit/delete projects
-
-Add opportunities
-
-Publish articles
-
-Upload resources
-
-Update impact statistics
-
-Manage team profiles
-
-Manage partner organizations
-
-View membership applications
-
-View volunteer applications
-
-View partnership inquiries
-
-Manage newsletter subscribers
-
-DESIGN DETAILS
-
-Use modern animations, but keep them subtle and professional.
-
-Include:
-
-Smooth scrolling
-
-Hover animations
-
-Scroll-based reveal animations
-
-Animated statistics
-
-Interactive cards
-
-Image galleries
-
-Responsive navigation
-
-Sticky navigation bar
-
-Clear CTA buttons
-
-Use high-quality imagery representing African youth, Kenya, environmental conservation, water, technology, schools, community projects and climate action.
-
-The final website should feel credible enough for international partners and donors while remaining accessible and inspiring to a 16–30-year-old young person visiting the website for the first time.
-
-Build the website architecture so the organization can later expand from a Kenyan initiative into a wider African youth platform without redesigning the entire system.
-
-Use placeholder content and images where information has not yet been provided, but structure everything so they can easily be replaced later.
-
-Most importantly, make the website feel like a movement young people want to join, not simply an organization they read about.
-
-This project was built with [Lovable](https://lovable.dev).
-
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/cc7ff858-1847-54e0-b3d8-ac6eadd97841).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+```bash
 npm run dev
 ```
+
+The terminal will display a local URL, for example:
+
+```text
+Local: http://localhost:5173/
+```
+
+or:
+
+```text
+Local: http://localhost:8081/
+```
+
+**Always use the URL displayed by the terminal. Do not assume the port number.**
+
+Open the URL in Chrome or another browser.
+
+The website is now running locally.
+
+### Stop the development server
+
+In the VS Code terminal, press:
+
+```text
+Ctrl + C
+```
+
+---
+
+## 5. Development Workflow
+
+The normal development workflow is:
+
+```text
+Pull latest code
+        ↓
+Install dependencies if required
+        ↓
+Run local development server
+        ↓
+Make changes in VS Code
+        ↓
+Test on localhost
+        ↓
+Build the project
+        ↓
+Commit changes
+        ↓
+Push to GitHub
+        ↓
+Deploy through the configured hosting platform
+```
+
+Start development with:
+
+```bash
+git pull
+npm run dev
+```
+
+After making changes, test all affected pages before committing.
+
+---
+
+## 6. Build for Production
+
+Before deploying a major change, create a production build:
+
+```bash
+npm run build
+```
+
+If the build completes successfully, the project is ready for deployment.
+
+If the project supports previewing the production build, run:
+
+```bash
+npm run preview
+```
+
+Do not deploy if the production build contains errors.
+
+---
+
+## 7. Common npm Commands
+
+| Command           | Purpose                          |
+| ----------------- | -------------------------------- |
+| `npm install`     | Install project dependencies     |
+| `npm run dev`     | Start local development server   |
+| `npm run build`   | Create production build          |
+| `npm run preview` | Preview production build locally |
+| `npm run`         | Display available npm scripts    |
+
+The exact commands available depend on the scripts defined in `package.json`.
+
+---
+
+## 8. Making Website Changes
+
+Website content and components are located within the project's source files.
+
+Before editing, identify where the relevant content is stored.
+
+Common locations include:
+
+```text
+src/
+├── components/
+├── pages/
+├── assets/
+├── App.*
+└── ...
+```
+
+Images may be stored in:
+
+```text
+src/assets/
+```
+
+or:
+
+```text
+public/
+```
+
+Styles may be located in CSS files or within the relevant components.
+
+**Do not move, rename, or delete project files unless you understand their dependencies.**
+
+For major structural changes, create a separate Git branch first.
+
+Example:
+
+```bash
+git checkout -b update-homepage
+```
+
+---
+
+## 9. Git Workflow
+
+Check which files have changed:
+
+```bash
+git status
+```
+
+Add changes:
+
+```bash
+git add .
+```
+
+Commit the changes:
+
+```bash
+git commit -m "Update homepage content"
+```
+
+Push to GitHub:
+
+```bash
+git push
+```
+
+Use descriptive commit messages.
+
+Examples:
+
+```text
+Update homepage content
+Fix mobile navigation
+Add climate education program
+Update contact information
+Fix newsletter form
+Improve mobile responsiveness
+```
+
+Avoid vague commit messages such as:
+
+```text
+update
+changes
+fix
+new
+```
+
+---
+
+## 10. Keeping Your Local Project Updated
+
+Before starting work, always get the latest version:
+
+```bash
+git pull
+```
+
+Then run:
+
+```bash
+npm run dev
+```
+
+If dependency files have changed, run:
+
+```bash
+npm install
+```
+
+Do not overwrite other people's changes if multiple developers are working on the repository.
+
+---
+
+## 11. Environment Variables and Secrets
+
+Sensitive credentials must **never** be committed to GitHub.
+
+Examples include:
+
+```text
+API keys
+Database credentials
+Newsletter API keys
+Authentication secrets
+Admin credentials
+Private tokens
+```
+
+Local environment variables should normally be stored in a file such as:
+
+```text
+.env
+```
+
+Ensure the file is included in `.gitignore`:
+
+```text
+.env
+.env.local
+```
+
+Never place secret API keys directly in frontend JavaScript, React components, HTML, or other publicly accessible source files.
+
+If a secret is accidentally pushed to GitHub, assume it is compromised and immediately revoke or rotate it.
+
+---
+
+## 12. Localhost Troubleshooting
+
+### Problem: `npm` is not recognized
+
+Example:
+
+```text
+npm : The term 'npm' is not recognized...
+```
+
+Install Node.js LTS and restart VS Code.
+
+Verify:
+
+```bash
+node -v
+npm -v
+```
+
+---
+
+### Problem: Website does not load
+
+First stop the server:
+
+```text
+Ctrl + C
+```
+
+Then restart:
+
+```bash
+npm run dev
+```
+
+Use the exact localhost URL displayed by the terminal.
+
+---
+
+### Problem: Application error in Chrome
+
+Open Chrome Developer Tools:
+
+```text
+F12 → Console
+```
+
+Check for red error messages.
+
+Also check the VS Code terminal for errors such as:
+
+```text
+Module not found
+Failed to compile
+SyntaxError
+ReferenceError
+Internal server error
+```
+
+Do not immediately change code without identifying the error.
+
+---
+
+### Problem: Dependencies are missing
+
+Run:
+
+```bash
+npm install
+```
+
+Then:
+
+```bash
+npm run dev
+```
+
+---
+
+### Problem: Production build fails
+
+Run:
+
+```bash
+npm run build
+```
+
+Read the error reported in the terminal.
+
+Fix the underlying issue before pushing the change to production.
+
+---
+
+## 13. Deployment
+
+The production website should be connected to the GitHub repository through the selected hosting platform.
+
+Recommended deployment flow:
+
+```text
+VS Code
+   ↓
+Local testing
+   ↓
+Git commit
+   ↓
+GitHub
+   ↓
+Hosting platform
+   ↓
+Production website
+```
+
+Once automatic deployment is configured, pushing a change to the production branch will trigger a new deployment.
+
+Always check the deployment status after pushing a significant change.
+
+---
+
+## 14. Production Checklist
+
+Before deploying a major update, confirm:
+
+* [ ] `npm run build` succeeds
+* [ ] Homepage works
+* [ ] Navigation works
+* [ ] Images load correctly
+* [ ] Buttons and links work
+* [ ] Forms work
+* [ ] Newsletter signup works
+* [ ] Mobile layout works
+* [ ] No major browser console errors
+* [ ] No credentials are exposed
+* [ ] Contact information is correct
+* [ ] Social media links work
+* [ ] New content has been proofread
+
+After deployment, test the live website again.
+
+---
+
+## 15. Security
+
+All contributors should follow these rules:
+
+1. Never commit passwords or API keys.
+2. Never share GitHub credentials.
+3. Enable two-factor authentication on GitHub.
+4. Use individual accounts instead of shared administrator accounts.
+5. Keep dependencies reasonably up to date.
+6. Review GitHub security/dependency alerts.
+7. Use HTTPS on the production website.
+8. Limit administrator access.
+9. Use environment variables for secrets.
+10. Regularly back up important website content and configuration.
+
+---
+
+## 16. Content Management
+
+If a CMS or admin dashboard is connected to the website, use it for routine content updates such as:
+
+* News
+* Events
+* Projects
+* Announcements
+* Opportunities
+* Images
+* Team information
+
+Code changes should be reserved for:
+
+* Design changes
+* New functionality
+* Structural changes
+* Bug fixes
+* Integrations
+* Security updates
+
+Only authorized users should have administrator access.
+
+---
+
+## 17. Newsletter Integration
+
+The newsletter system should be connected through a secure email/newsletter service.
+
+The website should not store newsletter credentials directly in frontend code.
+
+Newsletter functionality should support:
+
+* Subscriber signup
+* Email validation
+* Secure subscriber handling
+* Unsubscribe functionality
+* Spam protection
+* Privacy-conscious data collection
+
+If an API is required, keep the API credentials in environment variables or a secure server-side integration.
+
+---
+
+## 18. Recommended Maintenance
+
+### Every development session
+
+```bash
+git pull
+npm run dev
+```
+
+Test changes locally before committing.
+
+### Before pushing
+
+```bash
+git status
+npm run build
+```
+
+Then:
+
+```bash
+git add .
+git commit -m "Describe the change"
+git push
+```
+
+### Regularly
+
+Review:
+
+* Website functionality
+* Broken links
+* Forms
+* Newsletter signup
+* Security alerts
+* Dependencies
+* Domain/SSL status
+* Website content
+* Mobile responsiveness
+* Backups
+
+---
+
+## 19. Project Structure
+
+The project structure may vary depending on the framework. A typical structure may look like:
+
+```text
+green-cardinal-ke-website/
+│
+├── public/
+│   └── static assets
+│
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── assets/
+│   └── styles/
+│
+├── .gitignore
+├── package.json
+├── package-lock.json
+├── README.md
+└── ...
+```
+
+Do not assume every project uses exactly this structure. Refer to the actual files in the repository.
+
+---
+
+## 20. Contribution Rules
+
+Before contributing:
+
+1. Pull the latest changes.
+2. Create a branch for significant work.
+3. Make the changes.
+4. Test locally.
+5. Run the production build.
+6. Commit with a clear message.
+7. Push the branch.
+8. Review the changes before merging.
+
+For major changes, use a pull request rather than directly modifying the production branch.
+
+---
+
+## 21. Quick Start
+
+For an experienced developer who has already installed Node.js and Git:
+
+```bash
+git clone <REPOSITORY-URL>
+cd <PROJECT-FOLDER>
+npm install
+npm run dev
+```
+
+Open the localhost URL shown in the terminal.
+
+After making changes:
+
+```bash
+git add .
+git commit -m "Describe the changes"
+git push
+```
+
+For a production check:
+
+```bash
+npm run build
+```
+
+---
+
+## 22. Important Notes
+
+* The localhost URL is only accessible from the computer running the development server.
+* The localhost port may change depending on the project configuration.
+* GitHub stores the project's source code; it does not automatically mean the website is live.
+* The hosting platform is responsible for serving the production website.
+* Never commit secrets or private credentials.
+* Always test significant changes locally before deploying.
+* Keep the production branch stable.
+* Make backups before major structural changes.
+
+---
+
+## Green Cardinal KE Website Workflow
+
+```text
+                 ┌─────────────────┐
+                 │     VS CODE     │
+                 │  Edit Website   │
+                 └────────┬────────┘
+                          ↓
+                 ┌─────────────────┐
+                 │    LOCALHOST    │
+                 │     TESTING     │
+                 └────────┬────────┘
+                          ↓
+                 ┌─────────────────┐
+                 │     GITHUB      │
+                 │ Version Control │
+                 └────────┬────────┘
+                          ↓
+                 ┌─────────────────┐
+                 │    HOSTING      │
+                 │   DEPLOYMENT    │
+                 └────────┬────────┘
+                          ↓
+                 ┌─────────────────┐
+                 │  CUSTOM DOMAIN  │
+                 │ LIVE WEBSITE    │
+                 └─────────────────┘
+```
+
+**Primary rule:** Never push untested code directly to production. Develop → test → build → commit → push → deploy → verify.
