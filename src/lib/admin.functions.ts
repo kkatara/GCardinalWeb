@@ -2,13 +2,132 @@ import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod";
 import { requireSupabaseAuth } from "@/integrations/supabase/auth-middleware";
 
-const contentTypes = ["project","program","opportunity","article","resource","team","partner","voice","report"] as const;
-const statuses = ["draft","published","archived"] as const;
-const contentSchema = z.object({ id:z.string().uuid().optional(), content_type:z.enum(contentTypes), title:z.string().trim().min(2).max(180), slug:z.string().trim().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/).max(180), category:z.string().trim().max(100).default(""), summary:z.string().trim().max(1000).default(""), body:z.string().trim().max(30000).default(""), location:z.string().trim().max(180).nullable().default(null), organization:z.string().trim().max(180).nullable().default(null), image_url:z.string().url().max(2000).nullable().default(null), external_url:z.string().url().max(2000).nullable().default(null), deadline:z.string().datetime().nullable().default(null), featured:z.boolean().default(false), status:z.enum(statuses), details:z.record(z.string(),z.union([z.string(),z.number(),z.boolean(),z.null()])).default({}) });
-const idSchema=z.object({id:z.string().uuid()});
-async function assertAdmin(context:{supabase:any;userId:string}){const {data,error}=await context.supabase.from("user_roles").select("role").eq("user_id",context.userId).eq("role","admin").maybeSingle();if(error||!data) throw new Error("Forbidden");}
-export const getAdminDashboard=createServerFn({method:"GET"}).middleware([requireSupabaseAuth]).handler(async({context})=>{await assertAdmin(context);const [content,stats,submissions,subscribers]=await Promise.all([context.supabase.from("content_items").select("*").order("updated_at",{ascending:false}),context.supabase.from("impact_statistics").select("*").order("display_order"),context.supabase.from("submissions").select("*").order("created_at",{ascending:false}),context.supabase.from("newsletter_subscribers").select("*").order("created_at",{ascending:false})]);for(const result of [content,stats,submissions,subscribers]) if(result.error) throw result.error;return {content:content.data??[],stats:stats.data??[],submissions:submissions.data??[],subscribers:subscribers.data??[]};});
-export const saveContent=createServerFn({method:"POST"}).middleware([requireSupabaseAuth]).inputValidator(input=>contentSchema.parse(input)).handler(async({data,context})=>{await assertAdmin(context);const {id,...fields}=data;const published_at=data.status==="published"?new Date().toISOString():null;const payload={...fields,published_at};const result=id?await context.supabase.from("content_items").update(payload).eq("id",id).select().single():await context.supabase.from("content_items").insert(payload).select().single();if(result.error)throw result.error;return result.data;});
-export const deleteContent=createServerFn({method:"POST"}).middleware([requireSupabaseAuth]).inputValidator(input=>idSchema.parse(input)).handler(async({data,context})=>{await assertAdmin(context);const {error}=await context.supabase.from("content_items").delete().eq("id",data.id);if(error)throw error;return {ok:true};});
-export const saveImpactStat=createServerFn({method:"POST"}).middleware([requireSupabaseAuth]).inputValidator(input=>z.object({id:z.string().uuid(),label:z.string().trim().min(2).max(100),value:z.number().nonnegative().max(1_000_000_000),unit:z.string().max(20),display_order:z.number().int().min(0).max(100),is_active:z.boolean()}).parse(input)).handler(async({data,context})=>{await assertAdmin(context);const {error}=await context.supabase.from("impact_statistics").update(data).eq("id",data.id);if(error)throw error;return {ok:true};});
-export const updateSubmissionStatus=createServerFn({method:"POST"}).middleware([requireSupabaseAuth]).inputValidator(input=>z.object({id:z.string().uuid(),status:z.enum(["new","reviewing","accepted","closed"])}).parse(input)).handler(async({data,context})=>{await assertAdmin(context);const {error}=await context.supabase.from("submissions").update({status:data.status}).eq("id",data.id);if(error)throw error;return {ok:true};});
+const contentTypes = [
+  "project",
+  "program",
+  "opportunity",
+  "article",
+  "resource",
+  "team",
+  "partner",
+  "voice",
+  "report",
+] as const;
+const statuses = ["draft", "published", "archived"] as const;
+const contentSchema = z.object({
+  id: z.string().uuid().optional(),
+  content_type: z.enum(contentTypes),
+  title: z.string().trim().min(2).max(180),
+  slug: z
+    .string()
+    .trim()
+    .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/)
+    .max(180),
+  category: z.string().trim().max(100).default(""),
+  summary: z.string().trim().max(1000).default(""),
+  body: z.string().trim().max(30000).default(""),
+  location: z.string().trim().max(180).nullable().default(null),
+  organization: z.string().trim().max(180).nullable().default(null),
+  image_url: z.string().url().max(2000).nullable().default(null),
+  external_url: z.string().url().max(2000).nullable().default(null),
+  deadline: z.string().datetime().nullable().default(null),
+  featured: z.boolean().default(false),
+  status: z.enum(statuses),
+  details: z
+    .record(z.string(), z.union([z.string(), z.number(), z.boolean(), z.null()]))
+    .default({}),
+});
+const idSchema = z.object({ id: z.string().uuid() });
+async function assertAdmin(context: { supabase: any; userId: string }) {
+  const { data, error } = await context.supabase
+    .from("user_roles")
+    .select("role")
+    .eq("user_id", context.userId)
+    .eq("role", "admin")
+    .maybeSingle();
+  if (error || !data) throw new Error("Forbidden");
+}
+export const getAdminDashboard = createServerFn({ method: "GET" })
+  .middleware([requireSupabaseAuth])
+  .handler(async ({ context }) => {
+    await assertAdmin(context);
+    const [content, stats, submissions, subscribers] = await Promise.all([
+      context.supabase.from("content_items").select("*").order("updated_at", { ascending: false }),
+      context.supabase.from("impact_statistics").select("*").order("display_order"),
+      context.supabase.from("submissions").select("*").order("created_at", { ascending: false }),
+      context.supabase
+        .from("newsletter_subscribers")
+        .select("*")
+        .order("created_at", { ascending: false }),
+    ]);
+    for (const result of [content, stats, submissions, subscribers])
+      if (result.error) throw result.error;
+    return {
+      content: content.data ?? [],
+      stats: stats.data ?? [],
+      submissions: submissions.data ?? [],
+      subscribers: subscribers.data ?? [],
+    };
+  });
+export const saveContent = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((input) => contentSchema.parse(input))
+  .handler(async ({ data, context }) => {
+    await assertAdmin(context);
+    const { id, ...fields } = data;
+    const published_at = data.status === "published" ? new Date().toISOString() : null;
+    const payload = { ...fields, published_at };
+    const result = id
+      ? await context.supabase.from("content_items").update(payload).eq("id", id).select().single()
+      : await context.supabase.from("content_items").insert(payload).select().single();
+    if (result.error) throw result.error;
+    return result.data;
+  });
+export const deleteContent = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((input) => idSchema.parse(input))
+  .handler(async ({ data, context }) => {
+    await assertAdmin(context);
+    const { error } = await context.supabase.from("content_items").delete().eq("id", data.id);
+    if (error) throw error;
+    return { ok: true };
+  });
+export const saveImpactStat = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((input) =>
+    z
+      .object({
+        id: z.string().uuid(),
+        label: z.string().trim().min(2).max(100),
+        value: z.number().nonnegative().max(1_000_000_000),
+        unit: z.string().max(20),
+        display_order: z.number().int().min(0).max(100),
+        is_active: z.boolean(),
+      })
+      .parse(input),
+  )
+  .handler(async ({ data, context }) => {
+    await assertAdmin(context);
+    const { error } = await context.supabase
+      .from("impact_statistics")
+      .update(data)
+      .eq("id", data.id);
+    if (error) throw error;
+    return { ok: true };
+  });
+export const updateSubmissionStatus = createServerFn({ method: "POST" })
+  .middleware([requireSupabaseAuth])
+  .inputValidator((input) =>
+    z
+      .object({ id: z.string().uuid(), status: z.enum(["new", "reviewing", "accepted", "closed"]) })
+      .parse(input),
+  )
+  .handler(async ({ data, context }) => {
+    await assertAdmin(context);
+    const { error } = await context.supabase
+      .from("submissions")
+      .update({ status: data.status })
+      .eq("id", data.id);
+    if (error) throw error;
+    return { ok: true };
+  });

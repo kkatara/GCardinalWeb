@@ -2,7 +2,124 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Eye, Goal, HeartHandshake } from "lucide-react";
 import { PageIntro, SectionHeading, MovementCta } from "@/components/site/Page";
 import hero from "@/assets/green-cardinal-youth-action.jpg";
-const meta={title:"About Green Cardinal KE",description:"Meet the youth led Kenyan initiative equipping young people to lead sustainable solutions for people and planet."};
-export const Route=createFileRoute("/about")({head:()=>({meta:[{title:meta.title},{name:"description",content:meta.description},{property:"og:title",content:meta.title},{property:"og:description",content:meta.description},{property:"og:type",content:"website"},{name:"twitter:card",content:"summary_large_image"}],links:[{rel:"canonical",href:"/about"}]}),component:About});
-function About(){const values=["Youth Leadership","Inclusion","Innovation","Collaboration","Sustainability","Integrity","Community Impact"];return <><PageIntro eyebrow="About us" title="Led by youth. Built for lasting action." text="Green Cardinal KE exists to close the gap between young people’s ambition and their access to knowledge, networks, opportunities and decision making spaces."/><section className="section-pad"><div className="site-container grid gap-10 lg:grid-cols-2"><img src={hero} alt="Young Kenyan environmental volunteers working together" loading="lazy" width={1600} height={1200} className="aspect-[4/3] rounded-3xl object-cover"/><div><SectionHeading eyebrow="Who we are" title="A movement for practical possibility" text="We are a Kenyan youth-led initiative connecting climate education, water security, conservation, leadership and innovation. Our approach recognizes young people as partners and problem-solvers — not passive beneficiaries."/><div className="mt-7 rounded-2xl bg-water-soft p-6"><p className="text-sm leading-7 text-primary">This overview is structured for Green Cardinal KE and ready for the organization’s official origin story, registration details and milestones.</p></div></div></div></section><section className="section-pad bg-surface"><div className="site-container grid gap-5 md:grid-cols-2"><Statement icon={Eye} title="Our Vision" text="A future where young people are empowered and equipped to lead inclusive, sustainable solutions for people and planet."/><Statement icon={Goal} title="Our Mission" text="To connect, equip and amplify young people through education, innovation, advocacy and community action for a sustainable future."/></div></section><section className="section-pad"><div className="site-container"><SectionHeading eyebrow="What guides us" title="Our values"/><div className="mt-8 flex flex-wrap gap-3">{values.map(v=><span key={v} className="rounded-full border border-border bg-card px-5 py-3 font-semibold shadow-card">{v}</span>)}</div><div className="mt-16"><SectionHeading eyebrow="Our team" title="People behind the movement" text="Team profiles will appear here once Green Cardinal KE provides names, roles, biographies, photographs and social links."/><div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">{["Leadership","Programs","Partnerships"].map(role=><div key={role} className="rounded-2xl border border-dashed border-border p-6"><HeartHandshake className="text-water"/><h3 className="mt-5 font-bold">{role} profile</h3><p className="mt-2 text-sm text-muted-foreground">Profile details to be confirmed.</p></div>)}</div></div></div></section><MovementCta/></>};
-function Statement({icon:Icon,title,text}:{icon:typeof Eye;title:string;text:string}){return <article className="rounded-2xl border border-border bg-card p-7 shadow-card"><Icon className="size-7 text-water"/><h2 className="mt-5 text-2xl font-bold">{title}</h2><p className="mt-3 leading-7 text-muted-foreground">{text}</p></article>}
+const meta = {
+  title: "About Green Cardinal KE",
+  description:
+    "Meet the youth led Kenyan initiative equipping young people to lead sustainable solutions for people and planet.",
+};
+export const Route = createFileRoute("/about")({
+  head: () => ({
+    meta: [
+      { title: meta.title },
+      { name: "description", content: meta.description },
+      { property: "og:title", content: meta.title },
+      { property: "og:description", content: meta.description },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "/about" }],
+  }),
+  component: About,
+});
+function About() {
+  const values = [
+    "Youth Leadership",
+    "Inclusion",
+    "Innovation",
+    "Collaboration",
+    "Sustainability",
+    "Integrity",
+    "Community Impact",
+  ];
+  return (
+    <>
+      <PageIntro
+        eyebrow="About us"
+        title="Led by youth. Built for lasting action."
+        text="Green Cardinal KE exists to close the gap between young people’s ambition and their access to knowledge, networks, opportunities and decision making spaces."
+      />
+      <section className="section-pad">
+        <div className="site-container grid gap-10 lg:grid-cols-2">
+          <img
+            src={hero}
+            alt="Young Kenyan environmental volunteers working together"
+            loading="lazy"
+            width={1600}
+            height={1200}
+            className="aspect-[4/3] rounded-3xl object-cover"
+          />
+          <div>
+            <SectionHeading
+              eyebrow="Who we are"
+              title="A movement for practical possibility"
+              text="We are a Kenyan youth-led initiative connecting climate education, water security, conservation, leadership and innovation. Our approach recognizes young people as partners and problem-solvers — not passive beneficiaries."
+            />
+            <div className="mt-7 rounded-2xl bg-water-soft p-6">
+              <p className="text-sm leading-7 text-primary">
+                This overview is structured for Green Cardinal KE and ready for the organization’s
+                official origin story, registration details and milestones.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="section-pad bg-surface">
+        <div className="site-container grid gap-5 md:grid-cols-2">
+          <Statement
+            icon={Eye}
+            title="Our Vision"
+            text="A future where young people are empowered and equipped to lead inclusive, sustainable solutions for people and planet."
+          />
+          <Statement
+            icon={Goal}
+            title="Our Mission"
+            text="To connect, equip and amplify young people through education, innovation, advocacy and community action for a sustainable future."
+          />
+        </div>
+      </section>
+      <section className="section-pad">
+        <div className="site-container">
+          <SectionHeading eyebrow="What guides us" title="Our values" />
+          <div className="mt-8 flex flex-wrap gap-3">
+            {values.map((v) => (
+              <span
+                key={v}
+                className="rounded-full border border-border bg-card px-5 py-3 font-semibold shadow-card"
+              >
+                {v}
+              </span>
+            ))}
+          </div>
+          <div className="mt-16">
+            <SectionHeading
+              eyebrow="Our team"
+              title="People behind the movement"
+              text="Team profiles will appear here once Green Cardinal KE provides names, roles, biographies, photographs and social links."
+            />
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {["Leadership", "Programs", "Partnerships"].map((role) => (
+                <div key={role} className="rounded-2xl border border-dashed border-border p-6">
+                  <HeartHandshake className="text-water" />
+                  <h3 className="mt-5 font-bold">{role} profile</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    Profile details to be confirmed.
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+      <MovementCta />
+    </>
+  );
+}
+function Statement({ icon: Icon, title, text }: { icon: typeof Eye; title: string; text: string }) {
+  return (
+    <article className="rounded-2xl border border-border bg-card p-7 shadow-card">
+      <Icon className="size-7 text-water" />
+      <h2 className="mt-5 text-2xl font-bold">{title}</h2>
+      <p className="mt-3 leading-7 text-muted-foreground">{text}</p>
+    </article>
+  );
+}

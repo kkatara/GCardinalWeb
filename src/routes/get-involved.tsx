@@ -1,4 +1,82 @@
-import { createFileRoute } from "@tanstack/react-router";import { useState } from "react";import { Users,HandHeart,Handshake,Megaphone,Heart } from "lucide-react";import { Button } from "@/components/ui/button";import { PageIntro } from "@/components/site/Page";import { SubmitForm } from "@/components/site/SubmitForm";
-const title="Get Involved — Green Cardinal KE",description="Join, volunteer, mentor, partner or support Green Cardinal KE's youth-led sustainable action.";type Path="member"|"volunteer"|"mentor"|"partner";
-export const Route=createFileRoute("/get-involved")({head:()=>({meta:[{title},{name:"description",content:description},{property:"og:title",content:title},{property:"og:description",content:description},{property:"og:type",content:"website"},{name:"twitter:card",content:"summary_large_image"}],links:[{rel:"canonical",href:"/get-involved"}]}),component:Involved});
-function Involved(){const [path,setPath]=useState<Path>("member");const ways:[Path,string,string,typeof Users][]=[["member","Become a Member","Join a growing network of young changemakers.",Users],["volunteer","Volunteer","Contribute your time, skills and energy.",HandHeart],["mentor","Become a Mentor","Help emerging leaders move ideas forward.",Megaphone],["partner","Partner With Us","Build meaningful programs and shared impact.",Handshake]];return <><PageIntro eyebrow="Get involved" title="There is a place for you in this movement." text="Whether you are a student, innovator, activist, volunteer, organization or potential partner, choose how you want to take part."/><section className="section-pad"><div className="site-container grid gap-10 lg:grid-cols-[.8fr_1.2fr]"><div className="grid gap-3">{ways.map(([key,name,text,Icon])=><Button key={key} variant={path===key?"default":"outline"} onClick={()=>setPath(key)} className="h-auto justify-start rounded-2xl p-5 text-left"><Icon className="size-6 shrink-0"/><span><strong className="block">{name}</strong><small className={path===key?"mt-1 block text-primary-foreground/70":"mt-1 block text-muted-foreground"}>{text}</small></span></Button>)}<div className="mt-3 rounded-2xl bg-highlight/20 p-5"><Heart/><h3 className="mt-3 font-bold">Donate</h3><p className="mt-2 text-sm text-muted-foreground">Secure giving will be enabled once Green Cardinal KE confirms its payment provider and official donation details.</p></div></div><SubmitForm type={path} title={ways.find(w=>w[0]===path)?.[1]??"Join the movement"}/></div></section></>}
+import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
+import { Users, HandHeart, Handshake, Megaphone, Heart } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { PageIntro } from "@/components/site/Page";
+import { SubmitForm } from "@/components/site/SubmitForm";
+const title = "Get Involved — Green Cardinal KE",
+  description =
+    "Join, volunteer, mentor, partner or support Green Cardinal KE's youth-led sustainable action.";
+type Path = "member" | "volunteer" | "mentor" | "partner";
+export const Route = createFileRoute("/get-involved")({
+  head: () => ({
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "/get-involved" }],
+  }),
+  component: Involved,
+});
+function Involved() {
+  const [path, setPath] = useState<Path>("member");
+  const ways: [Path, string, string, typeof Users][] = [
+    ["member", "Become a Member", "Join a growing network of young changemakers.", Users],
+    ["volunteer", "Volunteer", "Contribute your time, skills and energy.", HandHeart],
+    ["mentor", "Become a Mentor", "Help emerging leaders move ideas forward.", Megaphone],
+    ["partner", "Partner With Us", "Build meaningful programs and shared impact.", Handshake],
+  ];
+  return (
+    <>
+      <PageIntro
+        eyebrow="Get involved"
+        title="There is a place for you in this movement."
+        text="Whether you are a student, innovator, activist, volunteer, organization or potential partner, choose how you want to take part."
+      />
+      <section className="section-pad">
+        <div className="site-container grid gap-10 lg:grid-cols-[.8fr_1.2fr]">
+          <div className="grid gap-3">
+            {ways.map(([key, name, text, Icon]) => (
+              <Button
+                key={key}
+                variant={path === key ? "default" : "outline"}
+                onClick={() => setPath(key)}
+                className="h-auto justify-start rounded-2xl p-5 text-left"
+              >
+                <Icon className="size-6 shrink-0" />
+                <span>
+                  <strong className="block">{name}</strong>
+                  <small
+                    className={
+                      path === key
+                        ? "mt-1 block text-primary-foreground/70"
+                        : "mt-1 block text-muted-foreground"
+                    }
+                  >
+                    {text}
+                  </small>
+                </span>
+              </Button>
+            ))}
+            <div className="mt-3 rounded-2xl bg-highlight/20 p-5">
+              <Heart />
+              <h3 className="mt-3 font-bold">Donate</h3>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Secure giving will be enabled once Green Cardinal KE confirms its payment provider
+                and official donation details.
+              </p>
+            </div>
+          </div>
+          <SubmitForm
+            type={path}
+            title={ways.find((w) => w[0] === path)?.[1] ?? "Join the movement"}
+          />
+        </div>
+      </section>
+    </>
+  );
+}

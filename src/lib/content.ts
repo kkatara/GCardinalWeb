@@ -9,13 +9,23 @@ export function useContent(type?: ContentType) {
   useEffect(() => {
     let active = true;
     async function load() {
-      let query = supabase.from("content_items").select("*").eq("status", "published").order("featured", { ascending: false }).order("published_at", { ascending: false });
+      let query = supabase
+        .from("content_items")
+        .select("*")
+        .eq("status", "published")
+        .order("featured", { ascending: false })
+        .order("published_at", { ascending: false });
       if (type) query = query.eq("content_type", type);
       const { data } = await query;
-      if (active) { setItems((data ?? []) as ContentItem[]); setLoading(false); }
+      if (active) {
+        setItems((data ?? []) as ContentItem[]);
+        setLoading(false);
+      }
     }
     void load();
-    return () => { active = false; };
+    return () => {
+      active = false;
+    };
   }, [type]);
   return { items, loading };
 }
@@ -23,8 +33,14 @@ export function useContent(type?: ContentType) {
 export function useImpactStats() {
   const [stats, setStats] = useState<ImpactStat[]>(demoStats);
   useEffect(() => {
-    supabase.from("impact_statistics").select("id,label,value,unit,display_order").eq("is_active", true).order("display_order")
-      .then(({ data }) => { if (data?.length) setStats(data as ImpactStat[]); });
+    supabase
+      .from("impact_statistics")
+      .select("id,label,value,unit,display_order")
+      .eq("is_active", true)
+      .order("display_order")
+      .then(({ data }) => {
+        if (data?.length) setStats(data as ImpactStat[]);
+      });
   }, []);
   return stats;
 }

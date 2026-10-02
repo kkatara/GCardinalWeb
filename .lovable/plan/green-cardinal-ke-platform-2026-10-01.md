@@ -1,4 +1,4 @@
-# Green Cardinal KE Platform
+l# Green Cardinal KE Platform
 
 ## Goal
 Build a polished, youth-centered digital platform that presents Green Cardinal KE as a credible Kenyan movement for climate action, water security, conservation, education, leadership, and youth participation.
