@@ -102,7 +102,7 @@ function Home() {
         <div className="site-container">
           <SectionHeading
             eyebrow="What drives us"
-            title="Six paths. One shared future."
+            title="Three paths. One shared future."
             text="We connect learning, leadership and practical action so young people can shape the systems affecting their lives."
           />
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

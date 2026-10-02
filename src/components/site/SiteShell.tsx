@@ -104,8 +104,8 @@ export function SiteFooter() {
           </p>
           <div className="mt-5 flex gap-2">
             <Social icon={Instagram} label="Instagram" />
-            <Social icon={Linkedin} label="LinkedIn" />
-            <Social icon={Youtube} label="YouTube" />
+             <Social   icon={Linkedin} label="LinkedIn" /> */
+            <Social icon={Youtube} label="YouTube" /> 
           </div>
         </div>
         <div>
@@ -146,7 +146,7 @@ export function SiteFooter() {
       </div>
       <div className="border-t border-primary-foreground/10">
         <div className="site-container flex flex-col gap-3 py-5 text-xs text-primary-foreground/55 sm:flex-row sm:items-center sm:justify-between">
-          <p>© 2026 Green Cardinal KE. Placeholder organizational details.</p>
+          <p>© Green Cardinal KE</p>
           <div className="flex gap-5">
             <span>Privacy Policy</span>
             <span>Terms of Use</span>
